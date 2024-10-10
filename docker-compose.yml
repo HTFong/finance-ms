@@ -1,0 +1,25 @@
+network:
+  example_network:
+    driver: "bridge"
+services:
+  accounts:
+    image: "example/accounts:s6"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    networks:
+      - example_network
+  loans:
+    image: "example/loans:s6"
+    container_name: loans-ms
+    ports:
+      - "8082:8080"
+    networks:
+      - example_network
+  cards:
+    image: "example/cards:s6"
+    container_name: cards-ms
+    ports:
+      - "8081:8080"
+    networks:
+      - example_network
